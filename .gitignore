@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Node
+node_modules/
+
+# Artifacts
+backend/artifacts/*.joblib
+backend/artifacts/*.json
+
+# OS
+.DS_Store

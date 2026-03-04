@@ -1,0 +1,3 @@
+timestamp_utc,course_name,study_hours,attendance_pct,assignment_score,midterm_score,sleep_hours,past_gpa,expected_grade_factor,probability_of_passing,predicted_final_grade,expectation_gap,risk_level
+2026-03-04T03:35:20.825784+00:00,Artificial Intelligence ,8.0,85.0,100.0,72.0,7.0,3.4,82.0,0.9075,100.0,18.0,Low
+2026-03-04T03:35:43.376184+00:00,Artificial Intelligence ,8.0,85.0,80.0,72.0,7.0,3.4,82.0,0.8258,97.25,15.25,Low

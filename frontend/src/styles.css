@@ -1,0 +1,155 @@
+:root {
+  --bg-0: #f3f7f1;
+  --bg-1: #e0efe4;
+  --surface: #fcfdfb;
+  --ink: #1f2933;
+  --accent: #0e7a5f;
+  --accent-soft: #d7f2e8;
+  --danger: #b91c1c;
+  --warn: #b45309;
+  --safe: #166534;
+  --line: #d3ddd7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Avenir Next', 'Segoe UI', sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at top right, var(--bg-1), var(--bg-0));
+}
+
+.layout {
+  min-height: 100vh;
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+.form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+input {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.6rem;
+  font-size: 0.95rem;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 0.95rem;
+  font-weight: 700;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(140px, 1fr));
+  gap: 0.65rem;
+}
+
+.metric-grid article {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.65rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.metric-grid strong {
+  font-size: 1.1rem;
+}
+
+.risk.low {
+  background: #edf8ef;
+}
+
+.risk.medium {
+  background: #fff8eb;
+}
+
+.risk.high {
+  background: #fdeaea;
+}
+
+.impacts {
+  margin-top: 1rem;
+}
+
+.impact-row {
+  margin-bottom: 0.45rem;
+}
+
+.impact-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.impact-bar-wrap {
+  width: 100%;
+  height: 10px;
+  background: #eef2ef;
+  border-radius: 999px;
+}
+
+.impact-bar {
+  height: 100%;
+  border-radius: inherit;
+}
+
+.impact-bar.positive {
+  background: var(--safe);
+}
+
+.impact-bar.negative {
+  background: var(--danger);
+}
+
+.error {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.metrics {
+  margin-top: 1rem;
+  border-top: 1px solid var(--line);
+  padding-top: 0.75rem;
+}
