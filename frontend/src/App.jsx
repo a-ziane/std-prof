@@ -1,5 +1,7 @@
 import { useMemo, useState } from 'react';
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL || '/api';
+
 const defaultForm = {
   course_name: '',
   study_hours: 20,
@@ -85,12 +87,12 @@ export default function App() {
 
     try {
       const [predRes, metricsRes] = await Promise.all([
-        fetch('/api/predict', {
+        fetch(`${API_BASE}/predict`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(form),
         }),
-        fetch('/api/metrics'),
+        fetch(`${API_BASE}/metrics`),
       ]);
 
       if (!predRes.ok) {

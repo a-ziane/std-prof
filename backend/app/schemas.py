@@ -19,3 +19,19 @@ class PredictionOutput(BaseModel):
     risk_level: str
     baseline_probability: float
     feature_impacts: dict[str, float]
+
+
+class PredictionHistoryItem(BaseModel):
+    timestamp_utc: str
+    course_name: str
+    study_hours: float
+    attendance_pct: float
+    assignment_score: float
+    midterm_score: float
+    sleep_hours: float
+    past_gpa: float
+    expected_grade_factor: float
+    probability_of_passing: float
+    predicted_final_grade: float
+    expectation_gap: float
+    risk_level: str

@@ -27,10 +27,11 @@ Includes:
 ## Project structure
 
 - `backend/ml/train.py`: model training pipeline + artifact generation
-- `backend/app/main.py`: API endpoints (`/predict`, `/metrics`, `/health`)
+- `backend/app/main.py`: API endpoints (`/predict`, `/metrics`, `/health`, `/history`)
 - `backend/app/model_service.py`: inference and SHAP impact generation
+- `backend/app/storage.py`: DB-ready prediction storage (SQLite/CSV adapters)
 - `frontend/src/App.jsx`: input form and prediction dashboard
-- `backend/artifacts/prediction_history.csv`: saved course-level prediction history
+- `backend/vercel.json`: Vercel serverless backend routing
 
 ## Quick start
 
@@ -89,6 +90,31 @@ curl -X POST http://localhost:8000/predict \
 ### AWS option
 - Backend: ECS/Fargate or EC2 with Docker.
 - Frontend: S3 + CloudFront.
+
+## Vercel deployment
+
+### Backend on Vercel
+- Import the repo as a new project.
+- Set Root Directory to `backend`.
+- Build Command (optional): `python -m ml.train`
+- Output Directory: leave empty.
+- Environment Variables:
+  - `PREDICTION_STORAGE_BACKEND=sqlite` (or `csv`)
+- The backend uses `backend/vercel.json` and `backend/api/index.py`.
+
+### Frontend on Vercel
+- Import the repo as a second project.
+- Set Root Directory to `frontend`.
+- Framework Preset: `Vite`.
+- Build Command: `npm run build`.
+- Output Directory: `dist`.
+- Environment Variables:
+  - `VITE_API_BASE_URL=https://<your-backend-project>.vercel.app`
+
+### Notes for history storage
+- History writes now go through a storage interface in `backend/app/storage.py`.
+- Default backend is SQLite (`prediction_history.db`) for local/dev use.
+- On serverless platforms, local files are ephemeral. Use a managed DB for durable history.
 
 ## Portfolio pitch
 

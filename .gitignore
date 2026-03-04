@@ -10,6 +10,8 @@ node_modules/
 # Artifacts
 backend/artifacts/*.joblib
 backend/artifacts/*.json
+backend/artifacts/*.csv
+backend/artifacts/*.db
 
 # OS
 .DS_Store
