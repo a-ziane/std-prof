@@ -20,8 +20,8 @@ The app predicts:
 
 Includes:
 - Logistic Regression baseline
-- Random Forest and XGBoost candidate models (best selected by test accuracy)
-- SHAP feature impact output for explainability
+- Random Forest and optional XGBoost candidate model (best selected by test accuracy)
+- Feature impact output with optional SHAP explainability
 - FastAPI backend + React frontend
 
 ## Project structure
@@ -115,6 +115,7 @@ curl -X POST http://localhost:8000/predict \
 - History writes now go through a storage interface in `backend/app/storage.py`.
 - Default backend is SQLite (`prediction_history.db`) for local/dev use.
 - On serverless platforms, local files are ephemeral. Use a managed DB for durable history.
+- For Vercel size limits, `xgboost` and `shap` are not in production requirements; the app runs without them.
 
 ## Portfolio pitch
 
